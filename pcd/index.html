@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+  <!-- ================= META / HEAD ================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Página de teste com todos os tipos de elementos HTML.">
+  <meta name="author" content="Antônio">
+  <meta name="keywords" content="html, teste, elementos">
+  <meta name="theme-color" content="#0f766e">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="refresh" content="3600"> <!-- demo: recarrega em 1h -->
+  <title>Teste de Elementos HTML</title>
+
+  <!-- <base href="/"> --><!-- omitido de propósito: mudaria a base das URLs relativas -->
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230f766e'/%3E%3C/svg%3E">
+  <link rel="canonical" href="https://exemplo.test/elementos-html">
+  <link rel="preconnect" href="https://example.com" crossorigin>
+
+  <style>
+    :root {
+      --tinta: #0f172a;
+      --marca: #0f766e;
+      --linha: #cbd5e1;
+      --fundo: #f8fafc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--tinta);
+      background: var(--fundo);
+    }
+    header.topo, footer.rodape { background: var(--marca); color: #fff; padding: 1rem 1.5rem; }
+    header.topo a, footer.rodape a { color: #d1fae5; }
+    nav ul { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; padding: 0; margin: .75rem 0 0; }
+    main { max-width: 1080px; margin: 0 auto; padding: 1.5rem; }
+    section, article, aside {
+      background: #fff;
+      border: 1px solid var(--linha);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+    h2 { border-bottom: 2px solid var(--marca); padding-bottom: .25rem; }
+    figure { margin: 1rem 0; }
+    figcaption { font-size: .875rem; color: #475569; }
+    table { border-collapse: collapse; width: 100%; }
+    caption { font-weight: 600; margin-bottom: .5rem; }
+    th, td { border: 1px solid var(--linha); padding: .4rem .6rem; text-align: left; }
+    thead th { background: #e2e8f0; }
+    tfoot td { background: #f1f5f9; }
+    form { display: grid; gap: .75rem; }
+    fieldset { border: 1px solid var(--linha); border-radius: 8px; }
+    legend { font-weight: 600; padding: 0 .4rem; }
+    label { font-weight: 500; }
+    input, select, textarea, output, button { font: inherit; padding: .35rem .5rem; }
+    .grade { display: grid; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .caixa { border: 1px dashed var(--linha); border-radius: 8px; padding: .75rem; }
+    mark { background: #fde68a; }
+    kbd { background: #1e293b; color: #fff; border-radius: 4px; padding: 0 .35rem; font-size: .85em; }
+    blockquote { border-left: 4px solid var(--marca); margin-left: 0; padding-left: 1rem; color: #334155; }
+    pre { background: #0f172a; color: #e2e8f0; padding: .75rem; border-radius: 8px; overflow: auto; }
+    dialog { border: 1px solid var(--linha); border-radius: 10px; max-width: 420px; }
+    dialog::backdrop { background: rgba(15, 23, 42, .5); }
+    [contenteditable] { border: 1px solid var(--linha); border-radius: 6px; padding: .5rem; background: #fff; }
+    .oculto-visual { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  </style>
+
+  <!-- JSON-LD (não é HTML visível, mas faz parte do head) -->
+  <script type="application/ld+json">
+    { "@context": "https://schema.org", "@type": "WebPage", "name": "Teste de Elementos HTML" }
+  </script>
+</head>
+
+<body>
+<a class="oculto-visual" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ================= HEADER / NAV ================= -->
+<header class="topo">
+  <hgroup>
+    <h1>Teste de Elementos HTML</h1>
+    <p>Uma página com o maior número possível de tags, atributos e estados.</p>
+  </hgroup>
+
+  <nav aria-label="Navegação principal">
+    <ul>
+      <li><a href="#texto">Texto</a></li>
+      <li><a href="#listas">Listas</a></li>
+      <li><a href="#tabelas">Tabelas</a></li>
+      <li><a href="#formularios">Formulários</a></li>
+      <li><a href="#midia">Mídia</a></li>
+      <li><a href="#graficos">Gráficos</a></li>
+      <li><a href="#interativos">Interativos</a></li>
+      <li><a href="#extras">Extras</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="conteudo">
+
+  <!-- ================= TEXTO E SEMÂNTICA INLINE ================= -->
+  <section id="texto">
+    <h2>1. Texto, títulos e semântica inline</h2>
+
+    <h1>Título h1</h1>
+    <h2>Título h2</h2>
+    <h3>Título h3</h3>
+    <h4>Título h4</h4>
+    <h5>Título h5</h5>
+    <h6>Título h6</h6>
+
+    <p>
+      Parágrafo com <strong>strong (importância)</strong>, <b>b (destaque visual)</b>,
+      <em>em (ênfase)</em>, <i>i (voz alternativa)</i>, <u>u (anotação)</u>,
+      <s>s (já não é válido)</s>, <small>small (letras miúdas)</small>,
+      <mark>mark (destacado)</mark>, <abbr title="HyperText Markup Language">HTML</abbr>,
+      <dfn>termo definido</dfn>, <cite>obra citada</cite>,
+      <code>code()</code>, <kbd>Ctrl</kbd> + <kbd>S</kbd>, <samp>saída do programa</samp>,
+      <var>x</var> = <var>y</var> + 2, H<sub>2</sub>O, E = mc<sup>2</sup>,
+      <del datetime="2026-09-10">preço antigo</del> <ins datetime="2026-09-12">preço novo</ins>,
+      <time datetime="2026-09-12">12 de setembro de 2026</time>,
+      <data value="20260912">data legível por máquina</data>,
+      <span>span genérico</span>,
+      <bdi>مرحبا</bdi>, <bdo dir="rtl">texto invertido</bdo>,
+      <ruby>漢<rp>(</rp><rt>kan</rt><rp>)</rp></ruby>,
+      <wbr>quebra<wbr>de<wbr>palavra<wbr>longa<wbr>opcional,
+      <a href="#texto">link interno</a>,
+      <a href="https://example.com" target="_blank" rel="noopener noreferrer" hreflang="en" type="text/html">link externo</a>,
+      <a href="data:text/plain;charset=utf-8,Arquivo%20de%20teste" download="teste.txt">link com download</a>,
+      <a href="mailto:teste@example.com">e-mail</a>,
+      <a href="tel:+5511999999999">telefone</a>.
+      <br>Quebra de linha com br, seguida de uma linha horizontal.
+    </p>
+
+    <hr>
+
+    <blockquote cite="https://example.com/fonte">
+      <p>Citação em bloco, com atributo <code>cite</code> apontando a fonte.</p>
+      <footer>— <cite>Autor Exemplo</cite>, <time datetime="2026-01-01">2026</time></footer>
+    </blockquote>
+
+    <p>Trecho curto com <q cite="https://example.com">citação inline</q> dentro do parágrafo.</p>
+
+    <address>
+      Contato: <a href="mailto:teste@example.com">teste@example.com</a><br>
+      Rua Exemplo, 123 — Cidade/UF
+    </address>
+
+    <pre><code>function soma(a, b) {
+  return a + b;   // pré-formatado com code
+}</code></pre>
+
+    <p>
+      Atributos globais: <span id="trecho-global" class="caixa destaque" title="Dica ao passar o mouse"
+        lang="pt-BR" dir="ltr" tabindex="0" accesskey="t" hidden="false"
+        data-teste="123" data-role="exemplo" role="note" aria-label="Exemplo de atributos globais"
+        aria-hidden="false" draggable="true" spellcheck="true" translate="no" contenteditable="false"
+        autocapitalize="off" inputmode="text">elemento com muitos atributos globais</span>.
+    </p>
+
+    <p contenteditable="true" spellcheck="true">Este parágrafo é editável (contenteditable + spellcheck).</p>
+
+    <p hidden>Este parágrafo tem o atributo <code>hidden</code> e não deve aparecer.</p>
+  </section>
+
+  <!-- ================= LISTAS ================= -->
+  <section id="listas">
+    <h2>2. Listas e agrupamentos</h2>
+
+    <ul>
+      <li>Item não ordenado 1</li>
+      <li>Item não ordenado 2
+        <ul><li>Item aninhado</li></ul>
+      </li>
+      <li>Item não ordenado 3</li>
+    </ul>
+
+    <ol type="1" start="1" reversed>
+      <li>Item ordenado (reversed)</li>
+      <li value="5">Item com <code>value</code> customizado</li>
+      <li>Último item</li>
+    </ol>
+
+    <menu>
+      <li><button type="button">Menu 1</button></li>
+      <li><button type="button">Menu 2</button></li>
+    </menu>
+
+    <dl>
+      <dt>Termo 1</dt>
+      <dd>Definição do termo 1.</dd>
+      <dt>Termo 2</dt>
+      <dd>Definição do termo 2.</dd>
+    </dl>
+
+    <figure>
+      <div class="caixa">Conteúdo da figura (poderia ser imagem, gráfico, código).</div>
+      <figcaption>Figura 1 — legenda com <code>figcaption</code>.</figcaption>
+    </figure>
+
+    <div class="grade">
+      <div class="caixa">div de grade</div>
+      <span class="caixa">span como caixa</span>
+    </div>
+  </section>
+
+  <!-- ================= TABELAS ================= -->
+  <section id="tabelas">
+    <h2>3. Tabelas</h2>
+
+    <table>
+      <caption>Vendas por trimestre</caption>
+      <colgroup>
+        <col style="width: 30%">
+        <col span="3" style="background: #f8fafc">
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">Produto</th>
+          <th scope="col">Q1</th>
+          <th scope="col">Q2</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Alfa</th>
+          <td>120</td>
+          <td>150</td>
+          <td>270</td>
+        </tr>
+        <tr>
+          <th scope="row">Beta</th>
+          <td colspan="2">300 (célula com colspan)</td>
+          <td>300</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td rowspan="2">Subtotal</td>
+          <td>420</td>
+          <td>450</td>
+          <td>570</td>
+        </tr>
+        <tr>
+          <td colspan="3">rodapé com colspan</td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+
+  <!-- ================= FORMULÁRIOS ================= -->
+  <section id="formularios">
+    <h2>4. Formulários, inputs e controles</h2>
+
+    <search>
+      <form action="/buscar" method="get">
+        <label for="q">Busca (elemento <code>&lt;search&gt;</code>)</label>
+        <input type="search" id="q" name="q" placeholder="Digite e pressione Enter" autocomplete="off">
+        <button type="submit">Buscar</button>
+      </form>
+    </search>
+
+    <form id="form-completo" action="/enviar" method="post" enctype="multipart/form-data" novalidate>
+      <fieldset>
+        <legend>Dados básicos</legend>
+
+        <div class="grade">
+          <p>
+            <label for="nome">text</label><br>
+            <input type="text" id="nome" name="nome" value="Antônio" placeholder="Nome"
+              required minlength="2" maxlength="60" size="30" autocomplete="name" autofocus>
+          </p>
+          <p>
+            <label for="email">email</label><br>
+            <input type="email" id="email" name="email" placeholder="voce@exemplo.com" multiple required>
+          </p>
+          <p>
+            <label for="senha">password</label><br>
+            <input type="password" id="senha" name="senha" minlength="8" autocomplete="new-password">
+          </p>
+          <p>
+            <label for="tel">tel</label><br>
+            <input type="tel" id="tel" name="tel" pattern="\+?[0-9\s()-]{8,20}" placeholder="+55 11 99999-9999">
+          </p>
+          <p>
+            <label for="url">url</label><br>
+            <input type="url" id="url" name="url" placeholder="https://exemplo.com">
+          </p>
+          <p>
+            <label for="numero">number</label><br>
+            <input type="number" id="numero" name="numero" min="0" max="100" step="0.5" value="10">
+          </p>
+          <p>
+            <label for="intervalo">range</label><br>
+            <input type="range" id="intervalo" name="intervalo" min="0" max="100" step="5" value="50" list="marcas">
+            <datalist id="marcas">
+              <option value="0">zero</option>
+              <option value="50">metade</option>
+              <option value="100">máximo</option>
+            </datalist>
+          </p>
+          <p>
+            <label for="cor">color</label><br>
+            <input type="color" id="cor" name="cor" value="#0f766e">
+          </p>
+          <p>
+            <label for="data">date</label><br>
+            <input type="date" id="data" name="data" value="2026-09-12" min="2020-01-01" max="2030-12-31">
+          </p>
+          <p>
+            <label for="hora">time</label><br>
+            <input type="time" id="hora" name="hora" value="14:30" step="60">
+          </p>
+          <p>
+            <label for="mes">month</label><br>
+            <input type="month" id="mes" name="mes" value="2026-09">
+          </p>
+          <p>
+            <label for="semana">week</label><br>
+            <input type="week" id="semana" name="semana" value="2026-W37">
+          </p>
+          <p>
+            <label for="local">datetime-local</label><br>
+            <input type="datetime-local" id="local" name="local" value="2026-09-12T14:30">
+          </p>
+          <p>
+            <label for="arquivo">file (múltiplo)</label><br>
+            <input type="file" id="arquivo" name="arquivo" accept="image/*,.pdf" multiple>
+          </p>
+          <p>
+            <label for="desabilitado">disabled (só leitura do navegador)</label><br>
+            <input type="text" id="desabilitado" name="desabilitado" value="bloqueado" disabled>
+          </p>
+          <p>
+            <label for="somente-leitura">readonly</label><br>
+            <input type="text" id="somente-leitura" name="somente_leitura" value="não editável" readonly>
+          </p>
+        </div>
+
+        <p>
+          <label for="mensagem">textarea</label><br>
+          <textarea id="mensagem" name="mensagem" rows="4" cols="40" maxlength="500"
+            placeholder="Escreva aqui..." wrap="soft" required></textarea>
+        </p>
+
+        <p>
+          <label for="assunto">select com optgroup</label><br>
+          <select id="assunto" name="assunto" required>
+            <option value="">Selecione…</option>
+            <optgroup label="Grupo A">
+              <option value="a1">Opção A1</option>
+              <option value="a2" selected>Opção A2</option>
+            </optgroup>
+            <optgroup label="Grupo B">
+              <option value="b1">Opção B1</option>
+              <option value="b2" disabled>Opção B2 (desabilitada)</option>
+            </optgroup>
+          </select>
+        </p>
+
+        <p>
+          <label for="multiplo">select multiple (size)</label><br>
+          <select id="multiplo" name="multiplo" multiple size="4">
+            <option value="1">Um</option>
+            <option value="2">Dois</option>
+            <option value="3">Três</option>
+            <option value="4">Quatro</option>
+          </select>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Checkbox, radio e cálculos</legend>
+
+        <p>
+          <input type="checkbox" id="aceite" name="aceite" value="sim" checked required>
+          <label for="aceite">Aceito os termos (checkbox marcado)</label><br>
+          <input type="checkbox" id="news" name="news" value="sim">
+          <label for="news">Quero receber novidades</label><br>
+          <input type="checkbox" id="indet" name="indeterminado" aria-checked="mixed">
+          <label for="indet">Checkbox com estado indeterminado (via JS)</label>
+        </p>
+
+        <fieldset>
+          <legend>radio (mesmo name)</legend>
+          <input type="radio" id="op1" name="opcao" value="1" checked>
+          <label for="op1">Opção 1</label>
+          <input type="radio" id="op2" name="opcao" value="2">
+          <label for="op2">Opção 2</label>
+        </fieldset>
+
+        <p>
+          <label for="a">a</label>
+          <input type="number" id="a" name="a" value="2">
+          <label for="b">b</label>
+          <input type="number" id="b" name="b" value="3">
+          <output id="soma" name="soma" for="a b">0</output>
+        </p>
+
+        <p>
+          <label for="nivel">meter</label>
+          <meter id="nivel" name="nivel" min="0" max="100" low="30" high="70" optimum="100" value="75">75%</meter>
+        </p>
+        <p>
+          <label for="carga">progress</label>
+          <progress id="carga" name="carga" max="100" value="60">60%</progress>
+          <progress max="100">indeterminado</progress>
+        </p>
+      </fieldset>
+
+      <fieldset disabled>
+        <legend>fieldset disabled (tudo bloqueado)</legend>
+        <label for="bloqueado">Campo dentro de fieldset desabilitado</label>
+        <input type="text" id="bloqueado" value="não editável">
+      </fieldset>
+
+      <input type="hidden" name="token" value="abc123">
+
+      <p>
+        <button type="submit">Enviar (submit)</button>
+        <button type="reset">Limpar (reset)</button>
+        <button type="button" id="abrir">Abrir diálogo</button>
+        <button type="button" disabled>Botão desabilitado</button>
+        <input type="submit" value="Input submit">
+        <input type="reset" value="Input reset">
+        <input type="button" value="Input button">
+        <input type="image" name="img_botao" alt="Enviar com imagem"
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='30'%3E%3Crect width='90' height='30' rx='6' fill='%230f766e'/%3E%3Ctext x='12' y='20' fill='white' font-size='13' font-family='sans-serif'%3EEnviar%3C/text%3E%3C/svg%3E" width="90" height="30">
+      </p>
+    </form>
+  </section>
+
+  <!-- ================= MÍDIA ================= -->
+  <section id="midia">
+    <h2>5. Imagens e mídia</h2>
+
+    <p>
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120'%3E%3Crect width='240' height='120' fill='%230ea5e9'/%3E%3Ccircle cx='60' cy='60' r='30' fill='%23facc15'/%3E%3C/svg%3E"
+        alt="Imagem de exemplo com círculo amarelo" width="240" height="120" loading="lazy" decoding="async">
+    </p>
+
+    <picture>
+      <source media="(min-width: 800px)" srcset="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='120'%3E%3Crect width='480' height='120' fill='%2322c55e'/%3E%3Ctext x='12' y='65' font-size='20' font-family='sans-serif' fill='white'%3Etela grande%3C/text%3E%3C/svg%3E">
+      <source media="(min-width: 400px)" srcset="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='120'%3E%3Crect width='300' height='120' fill='%23f97316'/%3E%3Ctext x='12' y='65' font-size='20' font-family='sans-serif' fill='white'%3Etela média%3C/text%3E%3C/svg%3E">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120'%3E%3Crect width='200' height='120' fill='%236366f1'/%3E%3Ctext x='12' y='65' font-size='18' font-family='sans-serif' fill='white'%3Etela pequena%3C/text%3E%3C/svg%3E"
+        alt="Imagem responsiva com picture" width="200" height="120">
+    </picture>
+
+    <p>
+      Mapa de imagem clicável (<code>map</code> + <code>area</code>): clique nas faixas.
+      <br>
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='80'%3E%3Crect width='100' height='80' fill='%23f97316'/%3E%3Crect x='100' width='100' height='80' fill='%230ea5e9'/%3E%3Crect x='200' width='100' height='80' fill='%2322c55e'/%3E%3C/svg%3E"
+        alt="Três faixas coloridas" width="300" height="80" usemap="#mapa-teste">
+      <map name="mapa-teste">
+        <area shape="rect" coords="0,0,100,80" href="#midia" alt="Faixa laranja" title="Laranja">
+        <area shape="rect" coords="100,0,200,80" href="#midia" alt="Faixa azul" title="Azul">
+        <area shape="rect" coords="200,0,300,80" href="#midia" alt="Faixa verde" title="Verde">
+      </map>
+    </p>
+
+    <video controls width="320" height="180" muted playsinline preload="metadata"
+      poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='180'%3E%3Crect width='320' height='180' fill='%231e293b'/%3E%3Ctext x='16' y='100' font-size='18' font-family='sans-serif' fill='white'%3Evídeo%3C/text%3E%3C/svg%3E">
+      <source src="midia/exemplo.webm" type="video/webm">
+      <source src="midia/exemplo.mp4" type="video/mp4">
+      <track kind="captions" src="midia/legendas.vtt" srclang="pt" label="Português" default>
+      Seu navegador não suporta o elemento <code>video</code>.
+    </video>
+
+    <audio controls preload="none">
+      <source src="midia/exemplo.ogg" type="audio/ogg">
+      <source src="midia/exemplo.mp3" type="audio/mpeg">
+      Seu navegador não suporta o elemento <code>audio</code>.
+    </audio>
+
+    <p>
+      <iframe title="Exemplo de iframe" width="320" height="120" loading="lazy" referrerpolicy="no-referrer"
+        sandbox srcdoc="&lt;p&gt;Conteúdo interno do iframe&lt;/p&gt;&lt;p&gt;&lt;em&gt;sandbox ativo&lt;/em&gt;&lt;/p&gt;"></iframe>
+    </p>
+
+    <object type="image/svg+xml" width="120" height="80"
+      data="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='80'%3E%3Crect width='120' height='80' fill='%23a855f7'/%3E%3C/svg%3E">
+      <param name="exemplo" value="1">
+      Fallback do <code>object</code>.
+    </object>
+
+    <embed type="image/svg+xml" width="120" height="80"
+      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='80'%3E%3Crect width='120' height='80' fill='%23ef4444'/%3E%3C/svg%3E">
+  </section>
+
+  <!-- ================= GRÁFICOS E SVG ================= -->
+  <section id="graficos">
+    <h2>6. Canvas e SVG</h2>
+
+    <canvas id="lienzo" width="240" height="100" aria-label="Desenho em canvas">
+      Seu navegador não suporta <code>canvas</code>.
+    </canvas>
+
+    <svg width="240" height="100" viewBox="0 0 240 100" role="img" aria-labelledby="svg-titulo" xmlns="http://www.w3.org/2000/svg">
+      <title id="svg-titulo">Formas SVG</title>
+      <rect x="5" y="5" width="70" height="90" rx="8" fill="#0f766e"></rect>
+      <circle cx="120" cy="50" r="35" fill="#f59e0b"></circle>
+      <path d="M170 90 L205 15 L240 90 Z" fill="#6366f1"></path>
+      <text x="20" y="55" fill="#fff" font-family="sans-serif" font-size="14">SVG</text>
+    </svg>
+  </section>
+
+  <!-- ================= INTERATIVOS ================= -->
+  <section id="interativos">
+    <h2>7. Elementos interativos</h2>
+
+    <details open>
+      <summary>Detalhes abertos por padrão</summary>
+      Conteúdo revelado pelo elemento <code>details</code>.
+    </details>
+
+    <details>
+      <summary>Outro details (fechado)</summary>
+      <p>Mais conteúdo interno, com <a href="#interativos">link</a>.</p>
+    </details>
+
+    <dialog id="dlg">
+      <form method="dialog">
+        <h3>Diálogo modal</h3>
+        <p>Elemento <code>dialog</code> aberto via <code>showModal()</code>.</p>
+        <menu>
+          <button value="cancelar">Cancelar</button>
+          <button value="ok">Confirmar</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <p>
+      <button type="button" popovertarget="pop">Abrir popover</button>
+    </p>
+    <div id="pop" popover class="caixa">
+      Este é um <strong>popover</strong> (atributo <code>popover</code> + <code>popovertarget</code>).
+    </div>
+
+    <template id="tpl-cartao">
+      <style>
+        :host { display: block; border: 1px dashed #0ea5e9; border-radius: 8px; padding: .6rem .8rem; margin: .5rem 0; }
+        strong { color: #0369a1; }
+      </style>
+      <strong><slot name="titulo">Sem título</slot></strong>
+      <p><slot>Sem conteúdo informado.</slot></p>
+    </template>
+
+    <cartao-teste>
+      <span slot="titulo">Web Component</span>
+      Conteúdo distribuído pelo slot padrão.
+    </cartao-teste>
+
+    <noscript>
+      <p class="caixa">Seu navegador está com JavaScript desativado.</p>
+    </noscript>
+  </section>
+
+  <!-- ================= EXTRAS ================= -->
+  <section id="extras">
+    <h2>8. Extra e conteúdo agregado</h2>
+
+    <article>
+      <h3>Artigo (article)</h3>
+      <p>Um conteúdo que faria sentido de forma independente.</p>
+
+      <aside>
+        <h4>Aside</h4>
+        <p>Conteúdo lateral, complementar ao artigo.</p>
+      </aside>
+    </article>
+
+    <p aria-live="polite" id="live" class="caixa">Região aria-live (anuncia mudanças para leitores de tela).</p>
+
+    <p>
+      Atalhos de teclado: <kbd>Alt</kbd> + <kbd>T</kbd> foca o span com <code>accesskey="t"</code>.
+      Segure <kbd>Alt</kbd> e pressione <kbd>T</kbd> para testar.
+    </p>
+
+    <!-- Elementos obsoletos propositalmente ausentes: <marquee>, <blink>, <center>,
+         <font>, <frame>, <frameset>, <applet>, <big>, <tt>, <strike>, <acronym>. -->
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="rodape">
+  <p>
+    &copy; <time datetime="2026">2026</time> Página de teste.
+    <small>Feita para exercitar elementos, atributos e estados do HTML.</small>
+  </p>
+  <nav aria-label="Rodapé">
+    <ul>
+      <li><a href="#conteudo">Voltar ao topo</a></li>
+      <li><a href="https://example.com" rel="license">Licença de exemplo</a></li>
+    </ul>
+  </nav>
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+  // ---- Soma com <output> e região aria-live ----
+  const form = document.getElementById('form-completo');
+  const atualizarSoma = () => {
+    const a = Number(form.elements['a'].value) || 0;
+    const b = Number(form.elements['b'].value) || 0;
+    form.elements['soma'].value = a + b;
+    document.getElementById('live').textContent = `Soma atualizada: ${a} + ${b} = ${a + b}`;
+  };
+  form.addEventListener('input', atualizarSoma);
+  atualizarSoma();
+
+  // ---- Checkbox indeterminado ----
+  document.getElementById('indet').indeterminate = true;
+
+  // ---- Dialog modal ----
+  const dlg = document.getElementById('dlg');
+  document.getElementById('abrir').addEventListener('click', () => dlg.showModal());
+  dlg.addEventListener('close', () => {
+    document.getElementById('live').textContent = `Diálogo fechado com: ${dlg.returnValue || 'ESC'}`;
+  });
+
+  // ---- Canvas ----
+  const c = document.getElementById('lienzo');
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#0f766e';
+  ctx.fillRect(10, 10, 220, 80);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '16px sans-serif';
+  ctx.fillText('canvas 2D', 80, 58);
+
+  // ---- Web Component (template + slot + shadow DOM) ----
+  class CartaoTeste extends HTMLElement {
+    connectedCallback() {
+      const tpl = document.getElementById('tpl-cartao');
+      this.attachShadow({ mode: 'open' }).appendChild(tpl.content.cloneNode(true));
+    }
+  }
+  customElements.define('cartao-teste', CartaoTeste);
+</script>
+</body>
+</html>
